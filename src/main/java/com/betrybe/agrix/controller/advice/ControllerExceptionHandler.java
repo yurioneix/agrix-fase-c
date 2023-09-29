@@ -4,6 +4,7 @@ import com.betrybe.agrix.controller.exception.CropNotFoundException;
 import com.betrybe.agrix.controller.exception.FarmNotFoundException;
 import com.betrybe.agrix.controller.exception.FertilizerNotFoundException;
 import com.betrybe.agrix.controller.exception.PersonNotFoundException;
+import com.betrybe.agrix.controller.exception.UsernameNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -26,5 +27,12 @@ public class ControllerExceptionHandler {
   })
   public ResponseEntity<String> handleNotFoundException(RuntimeException exception) {
     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+  }
+
+  @ExceptionHandler({
+      UsernameNotFoundException.class
+  })
+  public ResponseEntity<String> handleForbiddenException(RuntimeException exception) {
+    return ResponseEntity.status(HttpStatus.FORBIDDEN).body(exception.getMessage());
   }
 }
