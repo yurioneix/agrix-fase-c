@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  application:
+    container_name: agrix-fase-c
+    build: .
+    restart: always
+    ports:
+      - "8080:8080"
+    links:
+      - mysql:8.0.32
+    environment:
+      - DATABASE_HOST=mysql
+      - DATABASE_PORT=3306
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+    depends_on:
+      - mysql
+  mysql:
+    container_name: agrix-db
+    image: mysql:8.0.32
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
