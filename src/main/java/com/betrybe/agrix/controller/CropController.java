@@ -1,12 +1,12 @@
 package com.betrybe.agrix.controller;
 
 import com.betrybe.agrix.controller.dto.CropResponseDto;
+import com.betrybe.agrix.controller.exception.CropNotFoundException;
+import com.betrybe.agrix.controller.exception.FertilizerNotFoundException;
 import com.betrybe.agrix.model.entities.Crop;
 import com.betrybe.agrix.model.entities.Fertilizer;
 import com.betrybe.agrix.service.CropService;
 import com.betrybe.agrix.service.FertilizerService;
-import com.betrybe.agrix.service.exception.CropNotFoundException;
-import com.betrybe.agrix.service.exception.FertilizerNotFoundException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
